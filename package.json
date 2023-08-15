@@ -1,0 +1,16 @@
+{
+  "name": "task_lh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/add_Cart.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lighthouse": "^9.6.8",
+    "puppeteer": "^21.0.1"
+  }
+}

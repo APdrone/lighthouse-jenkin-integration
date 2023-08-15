@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+		stage('pullLatestCode'){
+            steps {
+			git branch: 'main',
+			 url: 'https://github.com/APdrone/lighthouse-jenkin-integration'
+            }
+        }
+        stage("Run tests") {
+            steps {
+                sh 'npm install'
+                sh 'npm run test'
+            }
+            post {
+                always {
+                    publishHTML (target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: '.',
+                    reportFiles: 'lighthouse-report.html',
+                    reportName: "Lighthouse"
+                ])
+                }
+
+            }
+
+        }
+
+    }
+
+}
