@@ -10,7 +10,20 @@ pipeline {
         stage("Run tests") {
             steps {
                 bat 'npm install'
-		bat 'npx lighthouse-ci http://localhost --jsonReport --report=.'lighthouseReport('./report.json')
+                bat 'npm run test'
+            }
+            post {
+                always {
+                    publishHTML (target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: '.',
+                    reportFiles: 'lighthouse-report.html',
+                    reportName: "Lighthouse"
+                ])
+                }
+
             }
 
         }
