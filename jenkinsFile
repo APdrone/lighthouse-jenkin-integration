@@ -3,7 +3,7 @@ pipeline {
     stages{
 		stage('pullLatestCode'){
             steps {
-			git branch: 'main',
+			git branch: 'master',
 			 url: 'https://github.com/APdrone/lighthouse-jenkin-integration'
             }
         }
