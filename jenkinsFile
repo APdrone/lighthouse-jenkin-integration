@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    stages{
 		stage('pullLatestCode'){
             steps {
 			git branch: 'main',
@@ -26,7 +27,5 @@ pipeline {
             }
 
         }
-
     }
-
 }
