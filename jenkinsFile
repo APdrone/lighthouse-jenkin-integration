@@ -9,8 +9,8 @@ pipeline {
         }
         stage("Run tests") {
             steps {
-                sh 'npm install'
-                sh 'npm run test'
+                bat 'npm install'
+                bat 'npm run test'
             }
             post {
                 always {
